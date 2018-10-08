@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Ecommerce</title>	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">  
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		 <div class="navbar-header">
+      		<a class="navbar-brand" href="/">NEWS TECHNOLOGY</a>
+    	</div>
+
+		<ul class="nav navbar-nav nav nav-pills collapse navbar-collapse">
+			<li><a href="/">INICIO</a></li>
+			<li><a href="/produto/listarProdutos">PRODUTOS</a></li>
+			<li sec:authorize="hasRole('USER')"><a href="/carrinho/historicoCompras">HISTÓRICO DE COMPRAS</a></li>
+			<li sec:authorize="hasRole('ADMIN')"><a href="/produto/cadastro">CADASTRAR PRODUTOS</a></li>
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right">
+      		<li><a href="/carrinho/visualizar"><span class="glyphicon glyphicon-shopping-cart"></span> Carrinho </a></li>
+      		<li><a href="/cliente/logar"><span class="glyphicon glyphicon-user"></span> Login </a></li>
+      		<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+    	</ul>
+	</div>
+</nav>
+
+<div class="table-responsive">
+	<table class="table">
+	  <thead class="thead-light">
+	    <tr>
+	      <th scope="col">Id_compra</th>
+	      <th scope="col">Usuário</th>
+	      <th scope="col">Produto</th>
+	      <th scope="col">Quantidade</th>
+	      <th scope="col">Valor</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr th:each="compra : ${allCompras}">
+	      <th scope="row" th:text="${compra.id_compra}"></th>
+	      <td th:text="${compra.usuario}"></td>
+	      <td th:text="${compra.produto}"></td>
+	      <td th:text="${compra.quantidade}"></td>
+	      <td th:text="${compra.valor}"></td>
+	    </tr>
+	  </tbody>
+	</table>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<footer class="container-fluid bg-4 text-center margin">
+	<div class="container">
+		<p>Design do site / logotipo © 2018 for Natanael</p>
+	</div>
+</footer>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</body>
+</html>

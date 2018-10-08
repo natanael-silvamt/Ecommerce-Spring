@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Login</title> 
+ 	<!-- 
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+	-->
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">  
+	
+</head>
+<body>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		 <div class="navbar-header">
+      		<a class="navbar-brand" href="/">NEWS TECHNOLOGY</a>
+    	</div>
+
+		<ul class="nav navbar-nav nav nav-pills collapse navbar-collapse">
+			<li><a href="/">INICIO</a></li>
+			<li><a href="/produto/listarProdutos">PRODUTOS</a></li>
+			<li sec:authorize="hasRole('ADMIN')"><a href="/produto/cadastro">CADASTRAR PRODUTOS</a></li>
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right">
+      		<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrinho </a></li>
+      		<li><a href="/cliente/logar"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+      		<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+    	</ul>
+	</div>
+</nav>
+
+<div class="container">
+	<div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Bem Vindo ao Nosso Site.</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" action="/cliente/logar" method="POST">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Usuário" name="username" type="text" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Senha" name="password" type="password" value="">
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block">Logar</button>
+                            <p>Não tem cadastro? <a href="/cliente/cadastro" class="">Cadastre-se</a></p>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<footer class="container-fluid bg-4 text-center margin">
+	<div class="container">
+		<p>Design do site / logotipo © 2018 for Natanael</p>
+	</div>
+</footer>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--  <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script> -->
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</body>
+</html>
