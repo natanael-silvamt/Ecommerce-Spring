@@ -1,1 +1,1 @@
-# Ecommerce-Spring
+# Spring boot e-commerce system
